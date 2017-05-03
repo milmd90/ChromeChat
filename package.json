@@ -1,0 +1,27 @@
+{
+  "name": "chromechat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "content.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/milmd90/ChromeChat.git"
+  },
+  "author": "milmd90",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/milmd90/ChromeChat/issues"
+  },
+  "homepage": "https://github.com/milmd90/ChromeChat#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "mysql": "^2.13.0",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  }
+}
