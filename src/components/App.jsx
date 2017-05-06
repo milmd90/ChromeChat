@@ -1,28 +1,36 @@
 import React, { Component } from 'react';
-import request from 'request';
+
+import Menu from './Menu';
+import Message from './Message';
 
 class App extends Component {
-    create() {
-        var options = {
-            method: 'GET',
-            url: 'https://chromechat-3fe8.restdb.io/rest/messages',
-            headers:
-            {   'cache-control': 'no-cache',
-                'x-apikey': '590d2e342040bc250c45d89e'
-            }
-        };
+    constructor(props) {
+        super(props);
+        this.state = {view:"menu"};
+    }
 
-        request(options, function (error, response, body) {
-            if (error) throw new Error(error);
-            console.log('hit');
-            console.log(body);
+    viewMenu() {
+        this.setState({view: "menu"});
+    }
+
+    viewMessage(msg_id) {
+        this.setState({
+            view: "message",
+            msg_id: msg_id
         });
     }
+
     render() {
-        this.create();
-        return (
-            <div>Hello Chrome!</div>
-        );
+        switch(this.state.view) {
+            case "menu":
+                return <Menu />;
+                break;
+            case "message":
+                return <Message msg_id={this.state.msg_id} />;
+                break;
+            default:
+                return <div>Error</div>;
+        }
     }
 }
 
