@@ -1,57 +1,46 @@
 import React, { Component } from 'react';
 
 import Menu from './Menu';
-import Message from './Message';
-import Compose from './Compose';
+import Chat from './Chat';
 
 class App extends Component {
     constructor(props) {
         super(props);
+            console.log("App constr");
 
-        this.viewMenu       = this._viewMenu.bind(this);
-        this.viewMessage    = this._viewMessage.bind(this);
-        this.viewCompose    = this._viewCompose.bind(this);
-
-        this.state = {view:"menu"};
+        this.state = {
+            view: "menu",
+            source: null
+        };
     }
 
-    _viewMenu() {
+    viewMenu() {
         console.log('viewMenu');
-        this.setState({view: "menu"});
-    }
-
-    _viewMessage(msg_id) {
-        console.log('viewMessage');
         this.setState({
-            view: "message",
-            msg_id: msg_id
+            view: "menu"
         });
     }
 
-    _viewCompose(msg_id) {
-        console.log('viewCompose');
+    viewChat(source) {
+        console.log('viewChat');
         this.setState({
-            view: "compose"
+            view: "chat",
+            source: source
         });
     }
 
     render() {
+        console.log("App Render");
         switch(this.state.view) {
             case "menu":
                 return <Menu
-                            viewMessage = {this.viewMessage}
-                            viewCompose = {this.viewCompose}
+                            viewChat    = {this.viewChat.bind(this)}
                         />;
                 break;
-            case "message":
-                return <Message
-                            msg_id = {this.state.msg_id}
-                            viewMenu = {this.viewMenu}
-                        />;
-                break;
-            case "compose":
-                return <Compose
-                            viewMenu = {this.viewMenu}
+            case "chat":
+                return <Chat
+                            viewMenu    = {this.viewMenu.bind(this)}
+                            source      = {this.state.source}
                         />;
                 break;
             default:

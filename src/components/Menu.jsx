@@ -2,15 +2,27 @@ import React, { Component } from 'react';
 import request from 'request';
 
 import Entry from './Entry'
-import Compose from './Compose'
 
 class Menu extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+            console.log("Menu Constr");
+        this.state = {}
+
+        this.handleChat = this._handleChat.bind(this);
+    }
+
+    componentWillMount() {
+        this.getMessages();
+    }
+
+    _handleChat() {
+        this.props.viewChat();
     }
 
     getMessages() {
+
+        //Add where dest is user
         var options = {
             method: 'GET',
             url: 'https://chromechat-3fe8.restdb.io/rest/messages',
@@ -24,22 +36,20 @@ class Menu extends Component {
             if (error) throw new Error(error);
             this.setState({
                 messages: JSON.parse(body)
-            })
+            });
         });
     }
 
     render() {
-        this.getMessages();
-
-        var entries = [];
         var messages = this.state.messages || [];
+        var entries = [];
 
         messages.forEach((item) => {
+            console.log(item);
             entries.push(
                 <Entry
-                    msg_id  = {item.index}
+                    viewChat = {this.props.viewChat}
                     source  = {item.source}
-                    dest    = {item.dest}
                     message = {item.message}
                 />
             )
@@ -49,9 +59,10 @@ class Menu extends Component {
         return (
             <div className="menu">
                 {this.entries}
-                <Compose
-                    handleClick={this.props.viewCompose}
-                />
+                <button
+                    className="compose"
+                    onClick={this.handleChat}>
+                </button>
             </div>
         )
     }
