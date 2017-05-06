@@ -11,8 +11,8 @@ class Entry extends Component {
 
     render() {
         return (
-            <div>
-                {this.props.msg_id}
+            <div className="entry">
+                {this.props.message}
             </div>
         )
     }

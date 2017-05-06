@@ -33,7 +33,7 @@ class Message extends Component {
 
     render() {
         return (
-            <div>
+            <div className="message">
                 {this.message}
             </div>
         )

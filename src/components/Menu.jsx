@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import request from 'request';
 
 import Entry from './Entry'
+import Compose from './Compose'
 
 class Menu extends Component {
     constructor(props) {
@@ -46,8 +47,11 @@ class Menu extends Component {
         this.entries = entries;
 
         return (
-            <div>
+            <div className="menu">
                 {this.entries}
+                <Compose
+                    handleClick={this.props.viewCompose}
+                />
             </div>
         )
     }

@@ -1,0 +1,70 @@
+/* General elements */
+* {
+    font-family: 'Raleway', sans-serif;
+    background: inherit;
+}
+
+body {
+    margin: 0;
+
+    &, #root {
+        height: 500px;
+        width: 400px;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+div {
+    border: 1px solid black;
+    vertical-align: top;
+}
+
+.center {
+    text-align: center;
+}
+
+.ib {
+    display: inline-block;
+     &.ib-2 {
+        width: 16.666666%
+    }
+    &.ib-3 {
+       width: 25%
+   }
+    &.ib-4 {
+        width: 33.333333%
+    }
+    &.ib-6 {
+        width: 50%
+    }
+    &.ib-8 {
+        width: 66.666666%
+    }
+    &.ib-9 {
+        width: 75%
+    }
+}
+
+
+/* Components */
+.compose {
+    position: fixed;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    border-radius: 20px;
+    bottom: 50px;
+    left: 340px;
+    text-align: center;
+}
+
+.entry {
+    padding: 5px;
+}
