@@ -5,9 +5,6 @@ module.exports = {
         filename: './public/bundle.js'
     },
     resolve: {
-        alias: {
-            'App': 'src/components/App.jsx'
-        },
         extensions: ['.js', '.jsx']
     },
     module: {
@@ -21,5 +18,11 @@ module.exports = {
                 exclude: /(node_modules|bower_components)/
             }
         ]
+    },
+    node: {
+        console: false,
+        fs: 'empty',
+        net: 'empty',
+        tls: 'empty'
     }
 };

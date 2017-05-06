@@ -8,16 +8,18 @@ class App extends Component {
             url: 'https://chromechat-3fe8.restdb.io/rest/messages',
             headers:
             {   'cache-control': 'no-cache',
-                'x-apikey': '590d2e342040bc250c45d89e' 
+                'x-apikey': '590d2e342040bc250c45d89e'
             }
         };
 
         request(options, function (error, response, body) {
             if (error) throw new Error(error);
+            console.log('hit');
             console.log(body);
         });
     }
     render() {
+        this.create();
         return (
             <div>Hello Chrome!</div>
         );
