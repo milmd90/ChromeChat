@@ -1,15 +1,23 @@
 /* General elements */
+$total-width: 400px;
+$total-height: 500px;
+
+$exit-width: 20px;
+$send-width: 50px;
+
 * {
     font-family: 'Raleway', sans-serif;
     background: inherit;
+    padding: 0;
+    margin: 0;
 }
 
 body {
     margin: 0;
 
     &, #root {
-        height: 500px;
-        width: 400px;
+        width: $total-width;
+        height: $total-height;
     }
 }
 
@@ -28,6 +36,7 @@ div {
 
 textarea {
     width: 100%;
+    resize: none;
 }
 
 .center {
@@ -68,12 +77,39 @@ textarea {
     width: 40px;
     line-height: 40px;
     border-radius: 20px;
-    bottom: 50px;
+    border: 1px solid black;
+    top: $total-height - 50px;
     left: 340px;
     text-align: center;
 }
 
 /* Chat */
-.exit {
-    float: right;
+.chatHeader {
+    .msgDest {
+        width: $total-width - $exit-width;
+    }
+
+    .exit {
+        float: right;
+        width: $exit-width;
+    }
+}
+.messages {
+    height: 85%;
+}
+
+.chatFooter {
+    position: fixed;
+    top: $total-height - 40px;
+    height: 40px;
+    width: $total-width;
+
+    .newMessage {
+        height: inherit;
+        width: $total-width - $send-width - 5px;
+    }
+    .sendMessage{
+        height: inherit;
+        width: $send-width;
+    }
 }

@@ -15,8 +15,9 @@ class Entry extends Component {
 
     render() {
         return (
-            <div className="entry"
-                    onClick={this.handleClick}>
+            <div
+                className="entry"
+                onClick={this.handleClick}>
                 {this.props.message}
             </div>
         )

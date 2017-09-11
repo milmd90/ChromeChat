@@ -6,7 +6,6 @@ import Entry from './Entry'
 class Menu extends Component {
     constructor(props) {
         super(props);
-            console.log("Menu Constr");
         this.state = {}
 
         this.handleChat = this._handleChat.bind(this);
@@ -26,9 +25,13 @@ class Menu extends Component {
         var options = {
             method: 'GET',
             url: 'https://chromechat-3fe8.restdb.io/rest/messages',
-            headers:
-            {   'cache-control': 'no-cache',
-                'x-apikey': '590d2e342040bc250c45d89e'
+            headers: {
+                'cache-control': 'no-cache',
+                'x-apikey': '590d2e342040bc250c45d89e',
+                'content-type': 'application/json'
+            },
+            qs: {
+                dest: this.props.user
             }
         };
 
@@ -45,7 +48,6 @@ class Menu extends Component {
         var entries = [];
 
         messages.forEach((item) => {
-            console.log(item);
             entries.push(
                 <Entry
                     viewChat = {this.props.viewChat}

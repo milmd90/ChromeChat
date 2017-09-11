@@ -6,7 +6,6 @@ import Chat from './Chat';
 class App extends Component {
     constructor(props) {
         super(props);
-            console.log("App constr");
 
         this.state = {
             view: "menu",
@@ -15,14 +14,12 @@ class App extends Component {
     }
 
     viewMenu() {
-        console.log('viewMenu');
         this.setState({
             view: "menu"
         });
     }
 
     viewChat(source) {
-        console.log('viewChat');
         this.setState({
             view: "chat",
             source: source
@@ -30,16 +27,17 @@ class App extends Component {
     }
 
     render() {
-        console.log("App Render");
         switch(this.state.view) {
             case "menu":
                 return <Menu
                             viewChat    = {this.viewChat.bind(this)}
+                            user        = {"mattdeanmiller@gmail.com"}
                         />;
                 break;
             case "chat":
                 return <Chat
                             viewMenu    = {this.viewMenu.bind(this)}
+                            user        = {"mattdeanmiller@gmail.com"}
                             source      = {this.state.source}
                         />;
                 break;
